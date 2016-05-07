@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet"> -->
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <svg id="visualisation" width="1000" height="500"></svg>
+    </div>
+  </div>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  /* JSON */
+  var data = [{
+    "sale": "659",
+    "year": "2006"
+}, {
+    "sale": "786",
+    "year": "2007"
+}, {
+    "sale": "548",
+    "year": "2008"
+}, {
+    "sale": "634",
+    "year": "2009"
+}, {
+    "sale": "857",
+    "year": "2010"
+}, {
+    "sale": "808",
+    "year": "2011"
+}, {
+    "sale" : "719",
+    "year": "2012"
+}, {
+    "sale": "623",
+    "year": "2013"
+}, {
+    "sale": "287",
+    "year": "2014"
+}, {
+    "sale": "500",
+    "year": "2015"
+}, {
+  "sale" : "622",
+  "year" : "2016"
+}
+];
+
+
+
+  var vis = d3.select("#visualisation"),
+      WIDTH = 1000,
+      HEIGHT = 500,
+      MARGINS = {
+          top: 20,
+          right: 20,
+          bottom: 20,
+          left: 50
+      },
+      xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
+      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([200,900]),
+      xAxis = d3.svg.axis()
+    .scale(xScale),
+
+yAxis = d3.svg.axis()
+    .scale(yScale);
+
+    vis.append("svg:g")
+    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+    .call(xAxis);
+
+    yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left");
+    vis.append("svg:g")
+    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+    .call(yAxis);
+
+    var lineGen = d3.svg.line()
+  .x(function(d) {
+    return xScale(d.year);
+  })
+  .y(function(d) {
+    return yScale(d.sale);
+  });
+
+vis.append('svg:path')
+  .attr('d', lineGen(data))
+  .attr('stroke', 'green')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+
+</script>
+</body>
+</html>
