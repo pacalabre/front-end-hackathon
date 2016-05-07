@@ -14,38 +14,38 @@
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script type="text/javascript">
   /* JSON */
-  var data = [{
-    "sale": "659",
+  var dataBaker = [{
+    "snow": "659",
     "year": "2006"
 }, {
-    "sale": "786",
+    "snow": "786",
     "year": "2007"
 }, {
-    "sale": "548",
+    "snow": "548",
     "year": "2008"
 }, {
-    "sale": "634",
+    "snow": "634",
     "year": "2009"
 }, {
-    "sale": "857",
+    "snow": "857",
     "year": "2010"
 }, {
-    "sale": "808",
+    "snow": "808",
     "year": "2011"
 }, {
-    "sale" : "719",
+    "snow" : "719",
     "year": "2012"
 }, {
-    "sale": "623",
+    "snow": "623",
     "year": "2013"
 }, {
-    "sale": "287",
+    "snow": "287",
     "year": "2014"
 }, {
-    "sale": "500",
+    "snow": "500",
     "year": "2015"
 }, {
-  "sale" : "622",
+  "snow" : "622",
   "year" : "2016"
 }
 ];
@@ -81,15 +81,15 @@ yAxis = d3.svg.axis()
 
 //generate line
     var lineGen = d3.svg.line()
-  .x(function(d) {
-    return xScale(d.year);
+  .x(function(dataBaker) {
+    return xScale(dataBaker.year);
   })
-  .y(function(d) {
-    return yScale(d.sale);
+  .y(function(dataBaker) {
+    return yScale(dataBaker.snow);
   });
 
 vis.append('svg:path')
-  .attr('d', lineGen(data))
+  .attr('d', lineGen(dataBaker))
   .attr('stroke', 'green')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
