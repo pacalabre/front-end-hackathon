@@ -127,7 +127,43 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
   "snow" : "208",
   "year" : "2016"
 }
+  ]
 
+  var dataWolf = [
+  {
+    "snow": "",
+    "year": "2006"
+}, {
+    "snow": "",
+    "year": "2007"
+}, {
+    "snow": "",
+    "year": "2008"
+}, {
+    "snow": "392",
+    "year": "2009"
+}, {
+    "snow": "465",
+    "year": "2010"
+}, {
+    "snow": "304",
+    "year": "2011"
+}, {
+    "snow" : "334",
+    "year": "2012"
+}, {
+    "snow": "356",
+    "year": "2013"
+}, {
+    "snow": "315",
+    "year": "2014"
+}, {
+    "snow": "421",
+    "year": "2015"
+}, {
+  "snow" : "443",
+  "year" : "2016"
+}
   ]
 
   var vis = d3.select("#visualisation"),
@@ -140,7 +176,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       left: 50
   },
     xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
-      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([000,900]),
+      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([00,900]),
       xAxis = d3.svg.axis()
       .scale(xScale),
 
@@ -202,6 +238,21 @@ var lineGen = d3.svg.line()
 vis.append('svg:path')
   .attr('d', lineGen(dataJay))
   .attr('stroke', 'blue')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+  //generate line for wolf creek
+  var lineGen = d3.svg.line()
+  .x(function(dataWolf) {
+    return xScale(dataWolf.year);
+  })
+  .y(function(dataWolf) {
+    return yScale(dataWolf.snow);
+  });
+
+vis.append('svg:path')
+  .attr('d', lineGen(dataWolf))
+  .attr('stroke', 'yellow')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
 
