@@ -50,8 +50,6 @@
 }
 ];
 
-
-
   var vis = d3.select("#visualisation"),
       WIDTH = 1000,
       HEIGHT = 500,
@@ -80,6 +78,8 @@ yAxis = d3.svg.axis()
     .attr("transform", "translate(" + (MARGINS.left) + ",0)")
     .call(yAxis);
 
+
+//generate line
     var lineGen = d3.svg.line()
   .x(function(d) {
     return xScale(d.year);
