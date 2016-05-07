@@ -1,3 +1,8 @@
+<!--
+  Tutorial used to make this graph:
+http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,34 +20,34 @@
 <script type="text/javascript">
   /* JSON */
   var dataBaker = [{
-    "snow": "659",
+    "snow": "804",
     "year": "2006"
 }, {
-    "snow": "786",
+    "snow": "659",
     "year": "2007"
 }, {
-    "snow": "548",
+    "snow": "786",
     "year": "2008"
 }, {
-    "snow": "634",
+    "snow": "548",
     "year": "2009"
 }, {
-    "snow": "857",
+    "snow": "634",
     "year": "2010"
 }, {
-    "snow": "808",
+    "snow": "857",
     "year": "2011"
 }, {
-    "snow" : "719",
+    "snow" : "808",
     "year": "2012"
 }, {
-    "snow": "623",
+    "snow": "719",
     "year": "2013"
 }, {
-    "snow": "287",
+    "snow": "623",
     "year": "2014"
 }, {
-    "snow": "500",
+    "snow": "287",
     "year": "2015"
 }, {
   "snow" : "622",
@@ -50,21 +55,59 @@
 }
 ];
 
+  var dataAlta = [
+  {
+    "snow": "637",
+    "year": "2006"
+}, {
+    "snow": "389",
+    "year": "2007"
+}, {
+    "snow": "701",
+    "year": "2008"
+}, {
+    "snow": "693",
+    "year": "2009"
+}, {
+    "snow": "570",
+    "year": "2010"
+}, {
+    "snow": "723",
+    "year": "2011"
+}, {
+    "snow" : "390",
+    "year": "2012"
+}, {
+    "snow": "449",
+    "year": "2013"
+}, {
+    "snow": "432",
+    "year": "2014"
+}, {
+    "snow": "323",
+    "year": "2015"
+}, {
+  "snow" : "438",
+  "year" : "2016"
+}
+
+  ]
+
   var vis = d3.select("#visualisation"),
-      WIDTH = 1000,
-      HEIGHT = 500,
-      MARGINS = {
-          top: 20,
-          right: 20,
-          bottom: 20,
-          left: 50
-      },
-      xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
+    WIDTH = 1000,
+    HEIGHT = 500,
+    MARGINS = {
+      top: 20,
+      right: 20,
+      bottom: 20,
+      left: 50
+  },
+    xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
       yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([200,900]),
       xAxis = d3.svg.axis()
-    .scale(xScale),
+      .scale(xScale),
 
-yAxis = d3.svg.axis()
+    yAxis = d3.svg.axis()
     .scale(yScale);
 
     vis.append("svg:g")
@@ -79,7 +122,7 @@ yAxis = d3.svg.axis()
     .call(yAxis);
 
 
-//generate line
+//generate line for Baker
     var lineGen = d3.svg.line()
   .x(function(dataBaker) {
     return xScale(dataBaker.year);
@@ -91,6 +134,22 @@ yAxis = d3.svg.axis()
 vis.append('svg:path')
   .attr('d', lineGen(dataBaker))
   .attr('stroke', 'green')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+
+// generate line for Alta
+   var lineGen = d3.svg.line()
+  .x(function(dataAlta) {
+    return xScale(dataAlta.year);
+  })
+  .y(function(dataAlta) {
+    return yScale(dataAlta.snow);
+  });
+
+vis.append('svg:path')
+  .attr('d', lineGen(dataAlta))
+  .attr('stroke', 'red')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
 
