@@ -18,7 +18,11 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
   </div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script type="text/javascript">
+
   /* JSON */
+
+  /* Mt Baker (Washington / Pnw) */
+  /* From Mt Baker website */
   var dataBaker = [{
     "snow": "804",
     "year": "2006"
@@ -55,6 +59,8 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 }
 ];
 
+/* Alta (Utah) */
+/* From Alta website */
   var dataAlta = [
   {
     "snow": "637",
@@ -92,6 +98,8 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 }
   ]
 
+/* Jay Peak (Vermont, Northeast region) */
+/* From Jay Peak website */
   var dataJay = [
   {
     "snow": "387",
@@ -129,15 +137,17 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 }
   ]
 
+/* Wolf Creek (Colorado) */
+/* From onthesnow.com */
   var dataWolf = [
   {
-    "snow": "",
+    "snow": "393",
     "year": "2006"
 }, {
-    "snow": "",
+    "snow": "284",
     "year": "2007"
 }, {
-    "snow": "",
+    "snow": "445",
     "year": "2008"
 }, {
     "snow": "392",
@@ -162,6 +172,46 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year": "2015"
 }, {
   "snow" : "443",
+  "year" : "2016"
+}
+  ]
+
+/* Whistler */
+/* From WhistlerBlackcomb.com*/
+
+  var dataWhistler = [
+  {
+    "snow": "470",
+    "year": "2006"
+}, {
+    "snow": "557",
+    "year": "2007"
+}, {
+    "snow": "401",
+    "year": "2008"
+}, {
+    "snow": "367",
+    "year": "2009"
+}, {
+    "snow": "587",
+    "year": "2010"
+}, {
+    "snow": "622",
+    "year": "2011"
+}, {
+    "snow" : "547",
+    "year": "2012"
+}, {
+    "snow": "437",
+    "year": "2013"
+}, {
+    "snow": "356",
+    "year": "2014"
+}, {
+    "snow": "265",
+    "year": "2015"
+}, {
+  "snow" : "486",
   "year" : "2016"
 }
   ]
@@ -253,6 +303,21 @@ vis.append('svg:path')
 vis.append('svg:path')
   .attr('d', lineGen(dataWolf))
   .attr('stroke', 'yellow')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+//generate line for whister
+  var lineGen = d3.svg.line()
+  .x(function(dataWhistler) {
+    return xScale(dataWhistler.year);
+  })
+  .y(function(dataWhistler) {
+    return yScale(dataWhistler.snow);
+  });
+
+vis.append('svg:path')
+  .attr('d', lineGen(dataWhistler))
+  .attr('stroke', 'teal')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
 
