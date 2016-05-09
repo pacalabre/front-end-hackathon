@@ -13,8 +13,12 @@ body {
   background-repeat: no-repeat;*/
 }
 
+.visual {
+  color: white;
+}
+
 .graph {
-  background-color: white;
+  background-color: transparent;
   width: 800px;
   margin: 10% 15%;
 }

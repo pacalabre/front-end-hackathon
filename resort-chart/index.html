@@ -24,7 +24,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     <div class="container">
       <h1 class="page-title">Regional Comparison</h1>
       <div class="graph" >
-        <svg id="visualisation" width="1000" height="500"></svg>
+        <svg id="visualisation" class="visual" width="1000" height="500"></svg>
       </div>
     </div>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -230,6 +230,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 
 
     var vis = d3.select("#visualisation"),
+
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -239,14 +240,14 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
         left: 50
     },
       xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
-        yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([00,900]),
-        xAxis = d3.svg.axis()
-        .scale(xScale),
-
+      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([00,900]),
+      xAxis = d3.svg.axis()
+      .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
 
       vis.append("svg:g")
+      .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
 
@@ -254,6 +255,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(yScale)
       .orient("left");
       vis.append("svg:g")
+      .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
 
