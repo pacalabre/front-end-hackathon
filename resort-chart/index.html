@@ -24,7 +24,37 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     <div class="container">
       <h1 class="page-title">Regional Comparison</h1>
       <div class="graph" >
-        <svg id="visualisation" class="visual" width="1000" height="500"></svg>
+        <svg id="visualisation1" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Mount Baker, WA</h1>
+      <div class="graph" >
+        <svg id="visualisation1" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Alta, UT</h1>
+      <div class="graph" >
+        <svg id="visualisation2" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Wolf Creek, CO</h1>
+      <div class="graph" >
+        <svg id="visualisation3" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Jay Peak, VT</h1>
+      <div class="graph" >
+        <svg id="visualisation4" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Whistler, BC</h1>
+      <div class="graph" >
+        <svg id="visualisation5" class="visual" width="1000" height="500"></svg>
       </div>
     </div>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -229,7 +259,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 
 
 
-    var vis = d3.select("#visualisation"),
+    var vis1 = d3.select("#visualisation1"),
 
       WIDTH = 800,
       HEIGHT = 500,
@@ -246,7 +276,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       yAxis = d3.svg.axis()
       .scale(yScale);
 
-      vis.append("svg:g")
+      vis1.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
@@ -254,7 +284,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
-      vis.append("svg:g")
+      vis1.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
@@ -269,7 +299,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       return yScale(dataBaker.snow);
     });
 
-    vis.append('svg:path')
+    vis1.append('svg:path')
     .attr('d', lineGen(dataBaker))
     .attr('stroke', 'green')
     .attr('stroke-width', 2)
@@ -285,7 +315,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       return yScale(dataAlta.snow);
     });
 
-    vis.append('svg:path')
+    vis1.append('svg:path')
     .attr('d', lineGen(dataAlta))
     .attr('stroke', 'red')
     .attr('stroke-width', 2)
@@ -300,7 +330,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       return yScale(dataJay.snow);
     });
 
-    vis.append('svg:path')
+    vis1.append('svg:path')
     .attr('d', lineGen(dataJay))
     .attr('stroke', 'blue')
     .attr('stroke-width', 2)
@@ -315,7 +345,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       return yScale(dataWolf.snow);
     });
 
-     vis.append('svg:path')
+     vis1.append('svg:path')
     .attr('d', lineGen(dataWolf))
     .attr('stroke', 'yellow')
     .attr('stroke-width', 2)
@@ -330,7 +360,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       return yScale(dataWhistler.snow);
     });
 
-    vis.append('svg:path')
+    vis1.append('svg:path')
     .attr('d', lineGen(dataWhistler))
     .attr('stroke', 'teal')
     .attr('stroke-width', 2)
