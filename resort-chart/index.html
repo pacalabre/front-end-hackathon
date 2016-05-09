@@ -461,53 +461,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .attr('fill', 'none');
 
     //Jay Only Graph
-    var vis4 = d3.select("#visualisation4"),
-
-      WIDTH = 800,
-      HEIGHT = 500,
-      MARGINS = {
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 50
-    },
-      xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
-      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([00,900]),
-      xAxis = d3.svg.axis()
-      .scale(xScale),
-      yAxis = d3.svg.axis()
-      .scale(yScale);
-
-      vis4.append("svg:g")
-      .attr("stroke","white")
-      .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
-      .call(xAxis);
-
-      yAxis = d3.svg.axis()
-      .scale(yScale)
-      .orient("left");
-      vis4.append("svg:g")
-      .attr("stroke","white")
-      .attr("transform", "translate(" + (MARGINS.left) + ",0)")
-      .call(yAxis);
-
-
-    //generate line for Jay
-    var lineGen = d3.svg.line()
-    .x(function(dataAlta) {
-      return xScale(dataAlta.year);
-    })
-    .y(function(dataAlta) {
-      return yScale(dataAlta.snow);
-    });
-
-    vis3.append('svg:path')
-    .attr('d', lineGen(dataAlta))
-    .attr('stroke', 'red')
-    .attr('stroke-width', 2)
-    .attr('fill', 'none');
-
-    //Wolf Only Graph
     var vis5 = d3.select("#visualisation5"),
 
       WIDTH = 800,
@@ -539,18 +492,65 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .call(yAxis);
 
 
-    //generate line for Wolf
+    //generate line for Jay
     var lineGen = d3.svg.line()
-    .x(function(dataAlta) {
-      return xScale(dataAlta.year);
+    .x(function(dataJay) {
+      return xScale(dataJay.year);
     })
-    .y(function(dataAlta) {
-      return yScale(dataAlta.snow);
+    .y(function(dataJay) {
+      return yScale(dataJay.snow);
     });
 
     vis5.append('svg:path')
-    .attr('d', lineGen(dataAlta))
-    .attr('stroke', 'red')
+    .attr('d', lineGen(dataJay))
+    .attr('stroke', 'blue')
+    .attr('stroke-width', 2)
+    .attr('fill', 'none');
+
+    //Wolf Only Graph
+    var vis4 = d3.select("#visualisation4"),
+
+      WIDTH = 800,
+      HEIGHT = 500,
+      MARGINS = {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 50
+    },
+      xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2006,2016]),
+      yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([00,900]),
+      xAxis = d3.svg.axis()
+      .scale(xScale),
+      yAxis = d3.svg.axis()
+      .scale(yScale);
+
+      vis4.append("svg:g")
+      .attr("stroke","white")
+      .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+      .call(xAxis);
+
+      yAxis = d3.svg.axis()
+      .scale(yScale)
+      .orient("left");
+      vis4.append("svg:g")
+      .attr("stroke","white")
+      .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+      .call(yAxis);
+
+
+    //generate line for Wolf
+    var lineGen = d3.svg.line()
+    .x(function(dataWolf) {
+      return xScale(dataWolf.year);
+    })
+    .y(function(dataWolf) {
+      return yScale(dataWolf.snow);
+    });
+
+    vis4.append('svg:path')
+    .attr('d', lineGen(dataWolf))
+    .attr('stroke', 'yellow')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
 
@@ -588,16 +588,16 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
 
     //generate line for Whistler
     var lineGen = d3.svg.line()
-    .x(function(dataAlta) {
-      return xScale(dataAlta.year);
+    .x(function(dataWhistler) {
+      return xScale(dataWhistler.year);
     })
-    .y(function(dataAlta) {
-      return yScale(dataAlta.snow);
+    .y(function(dataWhistler) {
+      return yScale(dataWhistler.snow);
     });
 
     vis6.append('svg:path')
-    .attr('d', lineGen(dataAlta))
-    .attr('stroke', 'red')
+    .attr('d', lineGen(dataWhistler))
+    .attr('stroke', 'teal')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
     </script>
