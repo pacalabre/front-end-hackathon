@@ -1,7 +1,6 @@
 <!--
   Tutorial used to make this graph:
 http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
-
  -->
 
 <!DOCTYPE html>
@@ -64,9 +63,7 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     </div>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-
     /* JSON */
-
     /* Mt Baker (Washington / Pnw) */
     /* From Mt Baker website */
     var dataBaker = [{
@@ -104,7 +101,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year" : "2016"
     }
     ];
-
     /* Alta (Utah) */
     /* From Alta website */
     var dataAlta = [
@@ -143,7 +139,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year" : "2016"
     }
     ]
-
     /* Jay Peak (Vermont, Northeast region) */
     /* From Jay Peak website */
     var dataJay = [
@@ -182,7 +177,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year" : "2016"
     }
     ]
-
     /* Wolf Creek (Colorado) */
     /* From onthesnow.com */
     var dataWolf = [
@@ -221,10 +215,8 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year" : "2016"
     }
     ]
-
     /* Whistler */
     /* From WhistlerBlackcomb.com*/
-
     var dataWhistler = [
     {
       "snow": "470",
@@ -261,11 +253,8 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     "year" : "2016"
     }
     ]
-
-
     // All Regions
     var vis1 = d3.select("#visualisation1"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -280,12 +269,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis1.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -293,8 +280,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Baker
     var lineGen = d3.svg.line()
     .x(function(dataBaker) {
@@ -303,14 +288,11 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataBaker) {
       return yScale(dataBaker.snow);
     });
-
     vis1.append('svg:path')
     .attr('d', lineGen(dataBaker))
     .attr('stroke', 'green')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
-
     // generate line for Alta
      var lineGen = d3.svg.line()
     .x(function(dataAlta) {
@@ -319,13 +301,11 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataAlta) {
       return yScale(dataAlta.snow);
     });
-
     vis1.append('svg:path')
     .attr('d', lineGen(dataAlta))
     .attr('stroke', 'red')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //generate line for Jay
     var lineGen = d3.svg.line()
     .x(function(dataJay) {
@@ -334,13 +314,11 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataJay) {
       return yScale(dataJay.snow);
     });
-
     vis1.append('svg:path')
     .attr('d', lineGen(dataJay))
     .attr('stroke', 'blue')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //generate line for wolf creek
     var lineGen = d3.svg.line()
     .x(function(dataWolf) {
@@ -349,13 +327,11 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataWolf) {
       return yScale(dataWolf.snow);
     });
-
      vis1.append('svg:path')
     .attr('d', lineGen(dataWolf))
     .attr('stroke', 'yellow')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //generate line for whister
     var lineGen = d3.svg.line()
     .x(function(dataWhistler) {
@@ -364,16 +340,13 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataWhistler) {
       return yScale(dataWhistler.snow);
     });
-
     vis1.append('svg:path')
     .attr('d', lineGen(dataWhistler))
     .attr('stroke', 'teal')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //Baker Only Graph
     var vis2 = d3.select("#visualisation2"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -388,12 +361,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis2.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -401,8 +372,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Baker
     var lineGen = d3.svg.line()
     .x(function(dataBaker) {
@@ -411,16 +380,13 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataBaker) {
       return yScale(dataBaker.snow);
     });
-
     vis2.append('svg:path')
     .attr('d', lineGen(dataBaker))
     .attr('stroke', 'green')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //Alta Only Graph
     var vis3 = d3.select("#visualisation3"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -435,12 +401,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis3.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -448,8 +412,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Alta
     var lineGen = d3.svg.line()
     .x(function(dataAlta) {
@@ -458,16 +420,13 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataAlta) {
       return yScale(dataAlta.snow);
     });
-
     vis3.append('svg:path')
     .attr('d', lineGen(dataAlta))
     .attr('stroke', 'red')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //Jay Only Graph
     var vis5 = d3.select("#visualisation5"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -482,12 +441,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis5.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -495,8 +452,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Jay
     var lineGen = d3.svg.line()
     .x(function(dataJay) {
@@ -505,16 +460,13 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataJay) {
       return yScale(dataJay.snow);
     });
-
     vis5.append('svg:path')
     .attr('d', lineGen(dataJay))
     .attr('stroke', 'blue')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //Wolf Only Graph
     var vis4 = d3.select("#visualisation4"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -529,12 +481,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis4.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -542,8 +492,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Wolf
     var lineGen = d3.svg.line()
     .x(function(dataWolf) {
@@ -552,16 +500,13 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataWolf) {
       return yScale(dataWolf.snow);
     });
-
     vis4.append('svg:path')
     .attr('d', lineGen(dataWolf))
     .attr('stroke', 'yellow')
     .attr('stroke-width', 2)
     .attr('fill', 'none');
-
     //Whistler Only Graph
     var vis6 = d3.select("#visualisation6"),
-
       WIDTH = 800,
       HEIGHT = 500,
       MARGINS = {
@@ -576,12 +521,10 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .scale(xScale),
       yAxis = d3.svg.axis()
       .scale(yScale);
-
       vis6.append("svg:g")
       .attr("stroke","white")
       .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
       .call(xAxis);
-
       yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left");
@@ -589,8 +532,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
       .attr("stroke","white")
       .attr("transform", "translate(" + (MARGINS.left) + ",0)")
       .call(yAxis);
-
-
     //generate line for Whistler
     var lineGen = d3.svg.line()
     .x(function(dataWhistler) {
@@ -599,7 +540,6 @@ http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-2
     .y(function(dataWhistler) {
       return yScale(dataWhistler.snow);
     });
-
     vis6.append('svg:path')
     .attr('d', lineGen(dataWhistler))
     .attr('stroke', 'teal')
