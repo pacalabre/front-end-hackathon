@@ -1,124 +1,67 @@
+<!--
+  Tutorial used to make this graph:
+http://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
+ -->
+
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>My first Three.js app</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-image: url("band.jpg");
-
-        background-size: cover;
-        background-repeat: no-repeat;
-        overflow: hidden;
-     }
-      canvas { width: 100%; height: 100% }
-
-
-    </style>
-  </head>
-  <body>
-    <script src="three.min.js"></script>
-    <script>
-
-      var renderer = new THREE.WebGLRenderer();
-
-      renderer.setSize(window.innerWidth,window.innerHeight);
-
-      renderer.setClearColorHex(0xefefef,1);
-
-      document.body.appendChild(renderer.domElement);
-
-      var scene = new THREE.Scene();
-
-      var camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight, 1,10000);
-
-      camera.position.y = -800;
-
-      camera.position.z = 800;
-
-      camera.rotation.x = 0.70;
-
-
-      var plane = new THREE.Mesh(
-        new THREE.PlaneGeometry(800,800,1),
-        new THREE.MeshNormalMaterial()
-      );
-
-
-      var cube = new THREE.Mesh(
-        new THREE.CubeGeometry(100,100,100),
-        new THREE.MeshNormalMaterial()
-      );
-
-      scene.add(plane);
-      scene.add(cube);
-      renderer.render(scene, camera);
-
-
-
-
-
-
-
-    </script>
+<head>
+  <title></title>
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+  <body class="contain">
+    <div class="background-div">
+      <video loop muted autoplay poster="resort.jpg" class="background-div-video">
+        <source src="snow-falling-vid-hq.m4v" type="video/mp4">
+      </video>
+    </div>
+    <nav class="nav">
+      <h1 class="nav-h1">POW!</span><span class="stash">stash</span></h1>
+    </nav>
+    <div>
+      <h1 class="page-title">Regional Comparison</h1>
+      <div class="graph" >
+        <svg id="visualisation1" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Mount Baker</h1>
+      <h2 class="location pnw">Pacific Northwest</h2>
+      <div class="graph" >
+        <svg id="visualisation2" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Alta, Utah</h1>
+      <h2 class="location west">West</h2>
+      <div class="graph" >
+        <svg id="visualisation3" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Wolf Creek</h1>
+      <h2 class="location west">West</h2>
+      <div class="graph" >
+        <svg id="visualisation4" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Jay Peak</h1>
+      <h2 class="location ne">Northeast</h2>
+      <div class="graph" >
+        <svg id="visualisation5" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Whistler, BC</h1>
+      <h2 class="location ca-w">Western Canada</h2>
+      <div class="graph" >
+        <svg id="visualisation6" class="visual" width="1000" height="500"></svg>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--   var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-
-      var renderer = new THREE.WebGLRenderer();
-      renderer.setSize( window.innerWidth, window.innerHeight );
-      document.body.appendChild( renderer.domElement );
-
-      var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-      var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-      var cube = new THREE.Mesh( geometry, material );
-      scene.add( cube );
-
-      var light = new THREE.PointLight(0xffffff);
-      var geometry = new THREE.CircleBufferGeometry( 3.5, 32 )
-      var material = new THREE.MeshBasicMaterial( {
-        color: 0x00ffff00
-        // map:THREE.ImageUtils.loadTexture("radiohead-logo.jpg")
-      });
-      var circle = new THREE.Mesh( geometry, material, light );
-      light.position.set(400,-400,300)
-      scene.add( circle );
-
-
-      camera.position.z = 5;
-
-      var render = function () {
-        requestAnimationFrame( render );
-
-        cube.rotation.x += 0.;
-        cube.rotation.y += 0.02;
-
-        renderer.render(scene, camera);
-      };
-
-
-
-      render(); -->
-
-
-
